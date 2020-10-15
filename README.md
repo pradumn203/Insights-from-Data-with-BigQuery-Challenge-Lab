@@ -213,8 +213,8 @@ Copy the below query in the query editor and click on RUN:
       france_cases
     LIMIT 1
     )
-    select first_day_cases, last_day_cases, days_diff, POWER(last_day_cases/first_day_cases,1/days_diff)-1 as cdgr
-    from summary
+    SELECT first_day_cases, last_day_cases, days_diff, POWER(last_day_cases/first_day_cases,1/days_diff)-1 AS cdgr
+    FROM summary
     
 ## Task — 10
 
