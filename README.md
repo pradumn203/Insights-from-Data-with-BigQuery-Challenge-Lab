@@ -185,6 +185,29 @@ Copy the below query in the query editor and click on RUN:
     ORDER BY recovery_rate DESC
     LIMIT 10
     
+ ## Task — 9
+
+Copy the below query in the query editor and click on RUN:
+
+    WITH
+      france_cases AS (
+    SELECT
+      date,
+    SUM(cumulative_confirmed) AS total_cases
+    FROM
+      `bigquery-public-data.covid19_open_data.covid19_open_data`
+    WHERE
+      country_name="France"
+      AND date IN ('2020-01-24',
+        '2020-05-10')
+    GROUP BY
+      date
+    ORDER BY
+      date)
+    , summary as (
+    SELECT
+      total_cases AS first_day_cases,
+      LEAD(total_cases) OVER(ORDER BY date   
 
     
 ## Task — 10
